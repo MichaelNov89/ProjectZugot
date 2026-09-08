@@ -2,9 +2,12 @@ import sys
 import time
 import pygame
 import consts
+import screen
 
 state_of_game={
-    "p_pos":(0,0)
+    "p_pos":(0,0),
+    "game_state":consts.RUNNING_STATE,
+    ""
 
 
 }
@@ -13,7 +16,7 @@ def main():
     pygame.init()
 
     while game_state==consts.RUNNING_STATE:
-        screen.draw_game(state_of_game)
+        screen.screen_display(state_of_game)
 
     return
 
@@ -23,6 +26,9 @@ def end_game():
     pygame.quit()
     return
 
+def check_events():
+
+    return
 
 
 #==============================================================================
