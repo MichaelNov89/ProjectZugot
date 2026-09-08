@@ -5,9 +5,7 @@ import consts
 import screen
 
 state_of_game={
-    "p_pos":(0,0),
-    "game_state":consts.RUNNING_STATE,
-    ""
+    "game_state":consts.RUNNING_STATE
 
 
 }
