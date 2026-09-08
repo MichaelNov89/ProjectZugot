@@ -16,16 +16,23 @@ flag_image = pygame.transform.scale(flag_image, (consts.FLAG_COLS * consts.CELL_
 soldier_image =(pygame.image.load("res/soldier.png"))
 soldier_image = pygame.transform.scale(soldier_image, (consts.FLAG_COLS * consts.CELL_SIZE, consts.FLAG_ROWS * consts.CELL_SIZE))
 
+soldier_night_image =(pygame.image.load("res/soldier_night.png"))
+soldier_night_image = pygame.transform.scale(soldier_night_image, (consts.FLAG_COLS * consts.CELL_SIZE, consts.FLAG_ROWS * consts.CELL_SIZE))
+
+mine_image =(pygame.image.load("res/mine.png"))
+mine_image = pygame.transform.scale(mine_image, (consts.FLAG_COLS * consts.CELL_SIZE, consts.FLAG_ROWS * consts.CELL_SIZE))
+
 
 pygame.init()
 
 
 def screen_display(state_of_game):
-    pygame.display.set_caption("The Flag")#title
     window.fill((63, 120, 11))
     create_grass()
-    create_flag()
     create_solider()
+    screen_display_Xray()
+    create_night_solider()
+    create_flag()
     pygame.display.update()
 
 
@@ -40,9 +47,18 @@ def create_flag():
 def create_solider():
     window.blit(soldier_image, (0, 0))
 
+def create_night_solider():
+    window.blit(soldier_night_image, (0, 0))
+
 
 def screen_display_Xray():
-    pygame.display.set_caption("Xray")
+    window.fill((0, 0, 0))
+    blockSize = 20
+    for x in range(0, consts.WINDOW_WIDTH, blockSize):
+        for y in range(0, consts.WINDOW_HEIGHT, blockSize):
+            rect = pygame.Rect(x, y, blockSize, blockSize)
+            pygame.draw.rect(window, consts.GREEN, rect, 1)
+
 
 
 

@@ -11,6 +11,7 @@ state_of_game={
 
 }
 def main():
+    pygame.display.set_caption("The Flag")  # title
     game_state=consts.RUNNING_STATE
     game_field.random_place_grass()
     pygame.init()
