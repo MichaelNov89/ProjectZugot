@@ -3,18 +3,23 @@ import time
 import pygame
 import consts
 import screen
+import game_field
 
 state_of_game={
     "p_pos":(0,0)
 
-
 }
+
 def main():
     game_state=consts.RUNNING_STATE
     pygame.init()
+    game_field.random_place_grass()
+
 
     while game_state==consts.RUNNING_STATE:
-        screen.draw_game(state_of_game)
+        screen.screen_display(state_of_game)
+
+
 
     return
 
