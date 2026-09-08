@@ -3,6 +3,10 @@ import screen
 import random
 
 place_grass_list = []
+mine_field=[]
+mines_positions=[]
+
+
 def random_place_grass():
     for i in range(20):
         x = random.randint(0, consts.WINDOW_WIDTH-40)
@@ -11,10 +15,6 @@ def random_place_grass():
             x = random.randint(0, consts.WINDOW_WIDTH - 40)
             y = random.randint(0, consts.WINDOW_HEIGHT - 40)
         place_grass_list.append((x,y))
-
-mine_field=[]
-mines_positions=[]
-grass_positions=[]
 
 def gen_minefield():
     mine_field=[[consts.CELL_EMPTY for i in range(consts.BOARD_COLS)] for j in range(consts.BOARD_ROWS)]
