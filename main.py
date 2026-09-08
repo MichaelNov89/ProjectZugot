@@ -11,11 +11,12 @@ state_of_game={
 
 }
 def main():
-    game_state=consts.RUNNING_STATE
+    game_field.gen_minefield()
     game_field.random_place_grass()
+    print(game_field.mine_field)
     pygame.init()
 
-    while game_state==consts.RUNNING_STATE and state_of_game["window_opened"]==True:
+    while state_of_game["game_state"]==consts.RUNNING_STATE and state_of_game["window_opened"]==True:
         screen.screen_display(state_of_game)
 
     return

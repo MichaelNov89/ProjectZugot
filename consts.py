@@ -3,7 +3,8 @@ SOLDIER_COLS = 2
 SOLDIER_BODY_ROWS = 3 # the upper part
 SOLDIER_FEET_ROWS = 1 # the lower part
 
-
+MINE_COLS = 3
+MINE_ROWS = 1
 
 BOARD_ROWS = 25
 BOARD_COLS = 50
