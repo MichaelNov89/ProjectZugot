@@ -5,7 +5,7 @@ import consts
 import screen
 
 state_of_game={
-    "game_state":consts.RUNNING_STATE
+    "game_state":consts.RUNNING_STATE,
     "window_opened":True
 
 }
