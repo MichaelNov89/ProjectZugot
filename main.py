@@ -13,7 +13,7 @@ def main():
     game_state=consts.RUNNING_STATE
     pygame.init()
 
-    while game_state==consts.RUNNING_STATE and state_of_game["window_closed"]==True:
+    while game_state==consts.RUNNING_STATE and state_of_game["window_opened"]==True:
         screen.screen_display(state_of_game)
 
     return

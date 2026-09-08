@@ -1,7 +1,6 @@
 import pygame
-from sys import exit
+
 import consts
-import pygame as pg
 
 import game_field
 
