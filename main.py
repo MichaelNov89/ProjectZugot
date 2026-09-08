@@ -3,6 +3,7 @@ import time
 import pygame
 import consts
 import screen
+import game_field
 
 state_of_game={
     "game_state":consts.RUNNING_STATE,
@@ -11,6 +12,7 @@ state_of_game={
 }
 def main():
     game_state=consts.RUNNING_STATE
+    game_field.random_place_grass()
     pygame.init()
 
     while game_state==consts.RUNNING_STATE and state_of_game["window_opened"]==True:

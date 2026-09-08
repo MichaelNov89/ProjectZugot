@@ -32,7 +32,7 @@ def screen_display(state_of_game):
 def create_grass():
     for i in range(20):
         temp_place_grass = game_field.place_grass_list[i]
-        window.blit(grass_image, (temp_place_grass))
+        window.blit(grass_image, temp_place_grass)
 
 def create_flag():
     window.blit(flag_image, (consts.flag_col * 20, consts.flag_row * 20))
