@@ -24,7 +24,7 @@ def gen_minefield():
 def gen_mines():
     pass
 
-
+mal = 0
 
 
 
