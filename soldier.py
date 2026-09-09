@@ -2,10 +2,10 @@ import game_field
 import consts
 
 player_head_pos = [0, 0]
-player_l_leg_pos = [player_head_pos[0]+ consts.SOLDIER_ROWS-1,
+player_l_leg_pos = [player_head_pos[0] + consts.SOLDIER_ROWS - 1,
                     player_head_pos[1]]
-player_r_leg_pos = [player_head_pos[0]  + consts.SOLDIER_ROWS-1,
-                    player_head_pos[1]+1]
+player_r_leg_pos = [player_head_pos[0] + consts.SOLDIER_ROWS - 1,
+                    player_head_pos[1] + 1]
 
 
 def move_player(move_dir):
@@ -29,8 +29,6 @@ def move_player(move_dir):
                 player_r_leg_pos[1] += 1
 
 
-
-
 def check_possible(move_dir):
     match move_dir:
         case "up":
@@ -42,11 +40,11 @@ def check_possible(move_dir):
                 return False
 
         case "left":
-            if player_l_leg_pos[1] - 1 <0:
+            if player_l_leg_pos[1] - 1 < 0:
                 return False
 
         case "right":
-            if player_r_leg_pos[1] + 1 >= consts.BOARD_COLS-1:
+            if player_r_leg_pos[1] + 1 >= consts.BOARD_COLS - 1:
                 return False
     return True
 
@@ -56,17 +54,26 @@ def check_on_bomb():
     l_leg_y = player_l_leg_pos[0]
     r_leg_x = player_r_leg_pos[1]
     r_leg_y = player_r_leg_pos[0]
-    if (game_field.mine_field[l_leg_y][l_leg_x] == consts.CELL_MINE) or (game_field.mine_field[r_leg_y][r_leg_x] == consts.CELL_MINE):
+    if (game_field.mine_field[l_leg_y][l_leg_x] == consts.CELL_MINE) or (
+            game_field.mine_field[r_leg_y][r_leg_x] == consts.CELL_MINE):
         return True
     return False
+
 
 def check_on_flag():
     l_leg_x = player_l_leg_pos[1]
     l_leg_y = player_l_leg_pos[0]
     r_leg_x = player_r_leg_pos[1]
     r_leg_y = player_r_leg_pos[0]
-    if (game_field.mine_field[l_leg_y][l_leg_x] == consts.CELL_FLAG )or (game_field.mine_field[r_leg_y][r_leg_x] == consts.CELL_FLAG):
+    if (game_field.mine_field[l_leg_y][l_leg_x] == consts.CELL_FLAG) or (
+            game_field.mine_field[r_leg_y][r_leg_x] == consts.CELL_FLAG):
         return True
     return False
 
 
+def set_head_p_head_pos(head_pos_to_set):
+    player_head_pos = head_pos_to_set
+    player_l_leg_pos = [player_head_pos[0] + consts.SOLDIER_ROWS - 1,
+                        player_head_pos[1]]
+    player_r_leg_pos = [player_head_pos[0] + consts.SOLDIER_ROWS - 1,
+                        player_head_pos[1] + 1]

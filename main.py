@@ -6,30 +6,34 @@ import screen
 import game_field
 import soldier
 
-state_of_game={
-    "game_state":consts.RUNNING_STATE,
-    "window_opened":True
+state_of_game = {
+    "game_state": consts.RUNNING_STATE,
+    "window_opened": True
 
 }
+
+
 def main():
     game_field.gen_minefield()
     game_field.random_place_grass()
     pygame.init()
 
-    while state_of_game["game_state"]==consts.RUNNING_STATE and state_of_game["window_opened"]==True:
+    while state_of_game["game_state"] == consts.RUNNING_STATE and \
+            state_of_game["window_opened"] == True:
 
         user_events()
         if soldier.check_on_bomb():
-            state_of_game["game_state"]=consts.LOSS_STATE
+            state_of_game["game_state"] = consts.LOSS_STATE
         elif soldier.check_on_flag():
-            state_of_game["game_state"]=consts.WIN_STATE
+            state_of_game["game_state"] = consts.WIN_STATE
 
         screen.screen_display(state_of_game)
 
-    if state_of_game["game_state"]!=consts.RUNNING_STATE:
+    if state_of_game["game_state"] != consts.RUNNING_STATE:
         end_game()
 
     return
+
 
 def user_events():
     for event in pygame.event.get():
@@ -53,28 +57,26 @@ def user_events():
                 screen.screen_display_Xray()
                 time.sleep(0.5)
 
-
-
-
+        #TODO: check if the playe inputs any of the numbers 1-9 and check the length of the press send num to database read or save
 
 
 def end_game():
-    if state_of_game["game_state"]==consts.LOSS_STATE:
+    if state_of_game["game_state"] == consts.LOSS_STATE:
         screen.draw_lose_message()
 
-    elif state_of_game["game_state"]==consts.WIN_STATE:
+    elif state_of_game["game_state"] == consts.WIN_STATE:
         screen.draw_win_message()
 
     time.sleep(3)
     pygame.quit()
     return
 
-def check_events():
 
+def check_events():
     return
 
 
-#==============================================================================
+# ==============================================================================
 
 if __name__ == "__main__":
     main()
