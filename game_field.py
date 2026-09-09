@@ -17,11 +17,14 @@ def random_place_grass():
         place_grass_list.append((x,y))
 
 def gen_minefield():
+
     for row in range(consts.flag_row,consts.flag_row+consts.FLAG_ROWS):
         for col in range(consts.flag_col, consts.flag_col + consts.FLAG_COLS):
             mine_field[row][col]=consts.CELL_FLAG
 
     gen_mines()
+
+
 
     return
 
@@ -37,8 +40,8 @@ def gen_mines():
         for col in range(x,x+3):
             mine_field[y][col]=consts.CELL_MINE
 
-        x=x*consts.CELL_SIZE
-        y=y*consts.CELL_SIZE
+        x=x*consts.CELL_SIZE+20
+        y=y*consts.CELL_SIZE-20
         mines_positions.append((x, y))
     return
 
@@ -48,6 +51,8 @@ def check_can_place_mines(mine_pos):
     x,y=mine_pos
     if x<consts.SOLDIER_COLS and y<consts.SOLDIER_ROWS:
         return False
+    if mine_field[y][x]!=consts.CELL_EMPTY or mine_field[y][x+1]!=consts.CELL_EMPTY or mine_field[y][x+2]!=consts.CELL_EMPTY :
+        return  False
 
     return True
 
