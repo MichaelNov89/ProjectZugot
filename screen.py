@@ -1,7 +1,5 @@
 import pygame
-
 import consts
-
 import game_field
 
 pygame.init()
@@ -32,6 +30,7 @@ def screen_display(state_of_game):
     create_solider()
     screen_display_Xray()
     create_night_solider()
+    # create_mine()
     create_flag()
     pygame.display.update()
 
@@ -60,8 +59,20 @@ def screen_display_Xray():
             pygame.draw.rect(window, consts.GREEN, rect, 1)
 
 
+# def create_mine():
+#     for i in range(20):
+#         temp_place_mine = game_field.mines_positions=[i]
+#         window.blit(mine_image, temp_place_mine)
 
 
+# def draw_lose_message():
+#     draw_message(consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE,
+#                  consts.LOSE_COLOR, consts.LOSE_LOCATION)
+#
+#
+# def draw_win_message():
+#     draw_message(consts.WIN_MESSAGE, consts.WIN_FONT_SIZE,
+#                  consts.WIN_COLOR, consts.WIN_LOCATION)
 
 
 
