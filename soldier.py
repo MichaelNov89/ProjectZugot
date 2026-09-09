@@ -1,11 +1,11 @@
 import game_field
 import consts
 
-player_head_pos = (0, 0)
-player_l_leg_pos = (player_head_pos[0],
-                    player_head_pos[1] + consts.SOLDIER_ROWS)
-player_r_leg_pos = (player_head_pos[0] + 1,
-                    player_head_pos[1] + consts.SOLDIER_ROWS)
+player_head_pos = [0, 0]
+player_l_leg_pos = [player_head_pos[0],
+                    player_head_pos[1] + consts.SOLDIER_ROWS]
+player_r_leg_pos =[(player_head_pos[0] + 1,
+                    player_head_pos[1] + consts.SOLDIER_ROWS]
 
 
 def move_player(move_dir):
@@ -50,7 +50,7 @@ def check_on_bomb():
         return True
     return False
 
-def check_on_mines():
+def check_on_flag():
     l_leg_x = player_l_leg_pos[1]
     l_leg_y = player_l_leg_pos[0]
     r_leg_x = player_r_leg_pos[1]
