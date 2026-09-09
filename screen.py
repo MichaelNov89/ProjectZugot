@@ -19,7 +19,7 @@ soldier_night_image =(pygame.image.load("res/soldier_night.png"))
 soldier_night_image = pygame.transform.scale(soldier_night_image, (consts.FLAG_COLS * consts.CELL_SIZE, consts.FLAG_ROWS * consts.CELL_SIZE))
 
 mine_image =(pygame.image.load("res/mine.png"))
-mine_image = pygame.transform.scale(mine_image, (consts.FLAG_COLS * consts.CELL_SIZE, consts.FLAG_ROWS * consts.CELL_SIZE))
+mine_image = pygame.transform.scale(mine_image, (consts.FLAG_COLS * consts.CELL_SIZE, consts.CELL_SIZE))
 
 font = pygame.font.SysFont(consts.FONT_NAME, consts.LOSE_FONT_SIZE)
 
@@ -65,7 +65,7 @@ def screen_display_Xray():
 
 def create_mine():
     for i in range(len(game_field.mines_positions)):
-        temp_place_mine = game_field.mines_positions=[i]
+        temp_place_mine = game_field.mines_positions[i]
         window.blit(mine_image, temp_place_mine)
 
 
