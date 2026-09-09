@@ -4,7 +4,7 @@ import consts
 player_head_pos = [0, 0]
 player_l_leg_pos = [player_head_pos[0],
                     player_head_pos[1] + consts.SOLDIER_ROWS]
-player_r_leg_pos =[(player_head_pos[0] + 1,
+player_r_leg_pos =[player_head_pos[0] + 1,
                     player_head_pos[1] + consts.SOLDIER_ROWS]
 
 
