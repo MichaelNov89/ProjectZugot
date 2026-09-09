@@ -29,7 +29,6 @@ def main():
         end_game()
 
     return
-
 def user_events():
     for event in pygame.event.get():
 
