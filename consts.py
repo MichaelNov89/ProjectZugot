@@ -5,6 +5,9 @@ SOLDIER_FEET_ROWS = 1 # the lower part
 FONT_NAME = "Calibri"
 
 
+MINE_COLS = 3
+MINE_ROWS = 1
+
 BOARD_ROWS = 25
 BOARD_COLS = 50
 CELL_SIZE = 20 # pixels per cell

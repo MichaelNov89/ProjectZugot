@@ -3,7 +3,7 @@ import screen
 import random
 
 place_grass_list = []
-mine_field=[]
+mine_field=[[consts.CELL_EMPTY for i in range(consts.BOARD_COLS)] for j in range(consts.BOARD_ROWS)]
 mines_positions=[]
 
 
@@ -18,14 +18,40 @@ def random_place_grass():
     return place_grass_list
 
 def gen_minefield():
-    mine_field=[[consts.CELL_EMPTY for i in range(consts.BOARD_COLS)] for j in range(consts.BOARD_ROWS)]
-    mine_field[consts.flag_row][consts.flag_col]=consts.CELL_FLAG
+    for row in range(consts.flag_row,consts.flag_row+consts.FLAG_ROWS):
+        for col in range(consts.flag_col, consts.flag_col + consts.FLAG_COLS):
+            mine_field[row][col]=consts.CELL_FLAG
+
+    gen_mines()
+
     return
 
-def gen_mines():
-    pass
 
-mal = 0
+def gen_mines():
+    for i in range(20):
+        x = random.randint(0, consts.BOARD_COLS - 4)
+        y = random.randint(0, consts.BOARD_ROWS - 4)
+        while ((x<consts.SOLDIER_COLS and y<consts.SOLDIER_ROWS) or (x>consts.flag_col and y>consts.flag_row)) and ((mine_field[y][x]==consts.CELL_EMPTY) and (mine_field[y][x+1]==consts.CELL_EMPTY) and (mine_field[y][x+2]==consts.CELL_EMPTY)):
+            x = random.randint(0, consts.BOARD_COLS - 4)
+            y = random.randint(0, consts.BOARD_ROWS - 4)
+
+    for col in range(x,x+3):
+        mine_field[y][col]=consts.CELL_MINE
+
+    x=x*consts.CELL_SIZE
+    y=y*consts.CELL_SIZE
+    mines_positions.append((x, y))
+
+
+def check_can_place_mines(mine_pos)
+    x,y=mine_pos
+    if x<consts.SOLDIER_COLS and y<consts.SOLDIER_ROWS:
+        return False
+
+    return True
+
+
+
 
 
 
