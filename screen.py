@@ -3,6 +3,7 @@ import consts
 import game_field
 import soldier
 
+# Here I define variables and assign them the value of the images.
 pygame.init()
 window = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 grass_image = (pygame.image.load("res/grass.png"))
@@ -28,7 +29,7 @@ font = pygame.font.SysFont(consts.FONT_NAME, consts.LOSE_FONT_SIZE)
 
 pygame.init()
 
-
+# the function responsible for calling all other functions in order and setting the background screen color.
 def screen_display(state_of_game):
     window.fill((63, 120, 11))
     create_grass()
@@ -36,7 +37,7 @@ def screen_display(state_of_game):
     create_flag()
     pygame.display.update()
 
-
+#A function responsible for generating the grass
 def create_grass():
     for i in range(len(game_field.place_grass_list)):
         temp_place_grass = game_field.place_grass_list[i]
@@ -46,7 +47,7 @@ def create_grass():
 def create_flag():
     window.blit(flag_image, ((consts.flag_col * 20), (consts.flag_row * 20) - 20))
 
-
+#The function prints the player at their location.
 def create_solider():
     y, x = soldier.player_head_pos
     y = y * consts.CELL_SIZE
@@ -60,7 +61,7 @@ def create_night_solider():
     x = x * consts.CELL_SIZE
     window.blit(soldier_night_image, (x, y))
 
-
+#A function responsible for printing the second screen.
 def screen_display_Xray():
     window.fill((0, 0, 0))
     blockSize = 20
