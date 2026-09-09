@@ -81,6 +81,6 @@ def draw_win_message():
 def draw_message(message, font_size, color, location):
     text_img = font.render(message, True, color)
     window.blit(text_img, location)
-
+mal = 0
 
 
