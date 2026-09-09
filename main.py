@@ -5,6 +5,10 @@ import consts
 import screen
 import game_field
 import soldier
+import os
+import database
+
+clock = pygame.time.Clock()
 
 state_of_game = {
     "game_state": consts.RUNNING_STATE,
@@ -57,7 +61,59 @@ def user_events():
                 screen.screen_display_Xray()
                 time.sleep(0.5)
 
-        #TODO: check if the playe inputs any of the numbers 1-9 and check the length of the press send num to database read or save
+            if event.key == pygame.K_1:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+            if event.key == pygame.K_2:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+            if event.key == pygame.K_3:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+            if event.key == pygame.K_4:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+            if event.key == pygame.K_5:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+            if event.key == pygame.K_6:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+            if event.key == pygame.K_7:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+            if event.key == pygame.K_8:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+            if event.key == pygame.K_9:
+                first_time = time.time()
+                state_of_game["press_start_time"] = first_time
+
+        calc_time(event)
+
+def calc_time(event):
+    if event.type == pygame.KEYUP:
+        if event.key == pygame.K_1 or event.key == pygame.K_2 or event.key == pygame.K_3 or event.key == pygame.K_4 or event.key == pygame.K_5 or event.key == pygame.K_6 or event.key == pygame.K_7 or event.key == pygame.K_8 or event.key == pygame.K_9:
+            current_time = time.time() - state_of_game["press_start_time"]
+            number = event.unicode
+            if current_time < 3:
+                database.save_to_file(current_time, number)
+            else:
+                database.read_from_file(current_time, number)
+
+
+
+
+
+
 
 
 def end_game():
