@@ -15,7 +15,6 @@ def random_place_grass():
             x = random.randint(0, consts.WINDOW_WIDTH - 40)
             y = random.randint(0, consts.WINDOW_HEIGHT - 40)
         place_grass_list.append((x,y))
-    return place_grass_list
 
 def gen_minefield():
     for row in range(consts.flag_row,consts.flag_row+consts.FLAG_ROWS):
@@ -31,26 +30,26 @@ def gen_mines():
     for i in range(20):
         x = random.randint(0, consts.BOARD_COLS - 4)
         y = random.randint(0, consts.BOARD_ROWS - 4)
-        while ((x<consts.SOLDIER_COLS and y<consts.SOLDIER_ROWS) or (x>consts.flag_col and y>consts.flag_row)) and ((mine_field[y][x]==consts.CELL_EMPTY) and (mine_field[y][x+1]==consts.CELL_EMPTY) and (mine_field[y][x+2]==consts.CELL_EMPTY)):
+        while not check_can_place_mines((x,y)):
             x = random.randint(0, consts.BOARD_COLS - 4)
             y = random.randint(0, consts.BOARD_ROWS - 4)
 
-    for col in range(x,x+3):
-        mine_field[y][col]=consts.CELL_MINE
+        for col in range(x,x+3):
+            mine_field[y][col]=consts.CELL_MINE
 
-    x=x*consts.CELL_SIZE
-    y=y*consts.CELL_SIZE
-    mines_positions.append((x, y))
+        x=x*consts.CELL_SIZE
+        y=y*consts.CELL_SIZE
+        mines_positions.append((x, y))
+    return
 
 
-def check_can_place_mines(mine_pos)
+
+def check_can_place_mines(mine_pos):
     x,y=mine_pos
     if x<consts.SOLDIER_COLS and y<consts.SOLDIER_ROWS:
         return False
 
     return True
-
-
 
 
 
