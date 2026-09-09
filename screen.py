@@ -70,7 +70,6 @@ def screen_display_Xray():
             pygame.draw.rect(window, consts.GREEN, rect, 1)
     create_night_solider()
     create_mine()
-    create_flag()
     pygame.display.update()
 
 
