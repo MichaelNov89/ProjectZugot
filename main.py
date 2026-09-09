@@ -5,6 +5,7 @@ import consts
 import screen
 import game_field
 import soldier
+import database
 
 state_of_game = {
     "game_state": consts.RUNNING_STATE,
@@ -26,6 +27,8 @@ def main():
             state_of_game["game_state"] = consts.LOSS_STATE
         elif soldier.check_on_flag():
             state_of_game["game_state"] = consts.WIN_STATE
+
+
 
         screen.screen_display(state_of_game)
 
